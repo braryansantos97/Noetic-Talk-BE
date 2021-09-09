@@ -1,7 +1,7 @@
 {
   "engine": {
-  "node": "14.17.0"
-},
+    "node": "14.17.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
