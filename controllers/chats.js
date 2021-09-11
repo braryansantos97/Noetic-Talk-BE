@@ -1,5 +1,5 @@
 require('dotenv').config()
-const Chat = require('../models/Chat');
+const Chat = require('../models/chat');
 const router = require('express').Router();
 
 //comment
@@ -62,8 +62,3 @@ router.post('/', async (req, res) => {
 // })
 
 module.exports = router;
-
-
-
-
-
