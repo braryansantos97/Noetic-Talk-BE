@@ -1,4 +1,3 @@
-import User from './user';
 const { Schema, model } = require('mongoose');
 
 const chatSchema = new Schema({
@@ -9,4 +8,3 @@ const chatSchema = new Schema({
 })
 
 module.exports = model('Chat', chatSchema)
-
