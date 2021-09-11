@@ -8,6 +8,7 @@ const blogsController = require('./controllers/blogs');
 const { hash, register, login } = require('./controllers/auth');
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
+const cors = require('cors')
 
 app.get('/', function (req, res) {
     res.send('Welcome to Noetic Talk');
@@ -27,9 +28,11 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.use(express.json());
+app.use(cors());
 if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 };
+
 
 app.use('/api/blogs', blogsController);
 app.post('/register', register);
