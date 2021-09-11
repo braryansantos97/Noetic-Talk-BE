@@ -9,6 +9,10 @@ const blogsController = require('./controllers/blogs');
 const { hash, register, login } = require('./controllers/auth');
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
+const chatsController = require('./controllers/chats');
+
+
+
 
 app.get('/', function (req, res) {
     res.send('Welcome to Noetic Talk');
@@ -44,6 +48,7 @@ if (process.env.NODE_ENV !== 'development'){
 };
 
 app.use('/api/blogs', blogsController);
+app.use('/api/chats', chatsController);
 app.post('/register', register);
 app.post('/login', login);
 
