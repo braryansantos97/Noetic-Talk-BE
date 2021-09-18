@@ -50,11 +50,11 @@ module.exports.register = registerService
 
 const loginService = async (req, res) => {
   try {
-    const foundUser = await User.findOne({ username: req.body.username })
+    const foundUser = await User.findOne({ email: req.body.email })
     req.body.password = hash(req.body.password)
     if(bcrypt.compareSync(req.body.password, foundUser.password)){
       const token = jwt.sign({
-        username: foundUser.username
+        email: foundUser.email
       }, SECRET)
       res.status(200).json({ user: foundUser, token })
     }else {
