@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const chatSchema = new Schema({
-  username: { type: Schema.Types.ObjectId, ref: 'User'},
+  username: { type: String, required: true},
   chatmessage: { type: String, required: true},
   chatroom: { type: String, required: true}
 }, {
