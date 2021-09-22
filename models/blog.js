@@ -3,7 +3,7 @@ const  { Schema, model } = require('mongoose');
 // make schema = bouncer at the club
 
 const blogSchema = new Schema({
-  username: { type: Schema.Types.ObjectId, ref: 'User'},
+  username: { type: String, required: true},
   topic: { type: String, required: true},
   title: { type: String, required: true},
   body: {type: String, required: true},
