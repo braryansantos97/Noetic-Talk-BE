@@ -30,9 +30,7 @@ router.post('/', async (req, res) => {
   /*Show*/
   router.get('/:id', async (req, res) => {
     try {
-      const oneBlog = await Blog.findById(req.params.id).populate("comments").exec((err, comments) => {
-      console.log("Populated Comments " + comments);
-    })
+      const oneBlog = await Blog.findById(req.params.id)
       res.status(200).json(oneBlog)
     } catch (error) {
       console.error(error);
