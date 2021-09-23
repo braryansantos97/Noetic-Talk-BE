@@ -55,23 +55,21 @@ router.post('/', async (req, res) => {
   //take that comment & add it to the comments array of the blog
   //send back relevant response
   router.put('/:id/addComment', (req, res) => {
-    const createCommentQuery = Comment.create(req.body)
-
-    createCommentQuery.exec((err, createdComment) => {
-      if(err) {
-        console.error(err);
-        res.status(400).json({ message: err.message, hello: "hi Sarah" })
-      } else {
-        const updateBlogQuery = Blog.findByIdAndUpdate(req.params.id, {$addToSet: { comments: createdComment._id }}, { new: true })
-        updateBlogQuery.exec((err, updatedBlog) => {
-          if(err) {
-            console.error(err);
-            res.status(400).json({ message: err.message })
-          } else {
-            res.status(200).json(createdComment)
-          }
-      })}
-    })
+   Comment.create(req.body, (err, createdComment) => {
+     if(err) {
+       console.error(err);
+       res.status(400).json({ message: err.message, hello: "hi Sarah" })
+     } else {
+       const updateBlogQuery = Blog.findByIdAndUpdate(req.params.id, {$addToSet: { comments: createdComment._id }}, { new: true })
+       updateBlogQuery.exec((err, updatedBlog) => {
+         if(err) {
+           console.error(err);
+           res.status(400).json({ message: err.message })
+         } else {
+           res.status(200).json(createdComment)
+         }
+     })}
+   }) 
   })
 
 //Delete
