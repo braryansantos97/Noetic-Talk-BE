@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
        console.error(err);
        res.status(400).json({ message: err.message, hello: "hi Sarah" })
      } else {
-       const updateBlogQuery = Blog.findByIdAndUpdate(req.params.id, {$addToSet: { comments: createdComment.message }}, { new: true })
+       const updateBlogQuery = Blog.findByIdAndUpdate(req.params.id, {$addToSet: { comments: createdComment._id }}, { new: true })
        updateBlogQuery.exec((err, updatedBlog) => {
          if(err) {
            console.error(err);
