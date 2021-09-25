@@ -1,1 +1,1 @@
-# blog-hypatia
+Noetic Talk

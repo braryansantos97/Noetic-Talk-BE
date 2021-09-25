@@ -9,7 +9,7 @@ const { hash, register, login } = require('./controllers/auth');
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 const chatsController = require('./controllers/chats');
-const cors = require('cors')
+const cors = require('cors');
 
 
 app.get('/', function (req, res) {
